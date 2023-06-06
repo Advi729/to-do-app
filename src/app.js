@@ -19,7 +19,7 @@ const AppLayout = () => {
       </div>
       <div className="input">
         <input value={toDo} onChange={(e) => setToDo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-        <i onClick={() => setToDoList([...toDoList, {id:Date.now(), text: toDo, status: 'false'}])} className="fas fa-plus"></i>
+        <i onClick={() => setToDoList([...toDoList, {id:Date.now(), text: toDo, status: false}])} className="fas fa-plus"></i>
       </div>
       {toDoList.map((item, index) => {
       return <ToDoItems item={item} key={index} allItems={toDoList} setItems={setToDoList}/>

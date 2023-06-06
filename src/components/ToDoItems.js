@@ -1,4 +1,9 @@
 const ToDoItems = ({item, allItems, setItems}) => {
+    const handleDelete = () => {
+        console.log('delete: ', item.id);
+        const updatedItems = allItems.filter((obj) => obj.id !== item.id);
+        setItems(updatedItems);
+      };
 //   console.log('props: ', props?.toDoList);
 //   console.log('props: ', item);
     return (
@@ -10,20 +15,20 @@ const ToDoItems = ({item, allItems, setItems}) => {
                 console.log(e);
                 setItems(allItems.filter((obj) => {
                     if(obj.id === item.id) {
-                        // console.log('evalue: ',e.target.value)
-                        if(e.target.value === 'false')
-                        obj.status = 'true'; 
-                        else
-                        obj.status = 'false';
+                        // if(e.target.value === 'false')
+                        // obj.status = 'true'; 
+                        // else
+                        // obj.status = 'false';
+                        obj.status = e.target.checked;
                     }
                     return obj;
                 }))
               }} value={item.status} type="checkbox" name="" id="" />
-              {(item.status === 'true') ? <p><s style={{color: 'red'}}>{item.text}</s></p> :
+              {(item.status) ? <p><s style={{color: 'red'}}>{item.text}</s></p> :
               <p>{item.text}</p>}
             </div>
             <div className="right">
-              <i className="fas fa-times"></i>
+            <i onClick={handleDelete} className="fas fa-times"></i>
             </div>
           </div>
         </div>
