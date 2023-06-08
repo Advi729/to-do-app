@@ -13,6 +13,19 @@ const AppLayout = () => {
     const options = { day: 'numeric', month: 'long', year: 'numeric' };
     const formattedDate = date.toLocaleDateString('en-IN', options);
 
+    // add to do
+    const addToDo = () => {
+      const isDuplicate = toDoList?.filter((item) => item.text === toDo);
+      console.log('in addTodo', toDo, isDuplicate);
+
+      if (isDuplicate.length === 0 && toDo !== '') {
+        setToDoList([...toDoList, {id:Date.now(), text: toDo, status: false}])
+      } else {
+        alert('No duplicate and blank spaces allowed.')
+      }
+      setToDo('');
+    };
+
     return (
         <>
         <div className="app">
@@ -25,7 +38,7 @@ const AppLayout = () => {
       </div>
       <div className="input">
         <input value={toDo} onChange={(e) => setToDo(e.target.value)} type="text" placeholder="🖊️ Add item..." />
-        <i onClick={() => setToDoList([...toDoList, {id:Date.now(), text: toDo, status: false}])} className="fas fa-plus"></i>
+        <i onClick={() => addToDo()} className="fas fa-plus"></i>
       </div>
       {toDoList.map((item, index) => {
       return <ToDoItems item={item} key={index} allItems={toDoList} setItems={setToDoList}/>

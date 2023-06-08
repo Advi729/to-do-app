@@ -23,7 +23,7 @@ const ToDoItems = ({item, allItems, setItems}) => {
                     }
                     return obj;
                 }))
-              }} value={item.status} type="checkbox" name="" id="" />
+              }} checked={item.status} type="checkbox" name="" id="" />
               {(item.status) ? <p><s style={{color: 'red'}}>{item.text}</s></p> :
               <p>{item.text}</p>}
             </div>
