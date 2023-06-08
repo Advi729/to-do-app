@@ -7,6 +7,12 @@ const AppLayout = () => {
     const [toDoList, setToDoList] = useState([]);
     const [toDo, setToDo] = useState('');
     console.log('todo: ', toDoList)
+
+    // date in day
+    const date = new Date();
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    const formattedDate = date.toLocaleDateString('en-IN', options);
+
     return (
         <>
         <div className="app">
@@ -15,7 +21,7 @@ const AppLayout = () => {
       </div>
       <div className="subHeading">
         <br />
-        <h2>Whoop, it's Wednesday 🌝 ☕ </h2>
+        <h2 style={{textAlign: 'center'}}>Today is {formattedDate}</h2>
       </div>
       <div className="input">
         <input value={toDo} onChange={(e) => setToDo(e.target.value)} type="text" placeholder="🖊️ Add item..." />

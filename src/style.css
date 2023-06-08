@@ -4,7 +4,7 @@
   }
   
   body {
-    background-color: #020631;
+    background-color: #470624;
   }
   
   .app {
@@ -30,7 +30,7 @@
   }
   
   .app .input {
-    margin-top: 0.8em;
+    margin-top: 2em;
     width: 20em;
     height: 2em;
     background-color: white;
